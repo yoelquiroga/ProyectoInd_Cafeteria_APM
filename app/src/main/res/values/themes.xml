@@ -1,10 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.ProyectoCafeteria" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+
+    <style name="Base.Theme.ProyectoCafeteria" parent="Theme.Material3.DayNight.NoActionBar" />
 
     <style name="Theme.ProyectoCafeteria" parent="Base.Theme.ProyectoCafeteria" />
+
+    <!-- Tema de Splash -->
+    <style name="Theme.ProyectoCafeteria.Splash" parent="Theme.SplashScreen">
+        <!-- Fondo del splash -->
+        <item name="windowSplashScreenBackground">@color/white</item>
+
+        <!-- Tu logo para el splash -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
+
+        <!-- Duración mínima del splash (en ms) -->
+        <item name="windowSplashScreenAnimationDuration">2000</item>
+
+        <!-- Tema a usar después del splash -->
+        <item name="postSplashScreenTheme">@style/Theme.ProyectoCafeteria</item>
+    </style>
 
 </resources>
