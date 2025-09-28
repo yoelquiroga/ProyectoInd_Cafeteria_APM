@@ -10,17 +10,17 @@
     tools:context=".SplashActivity">
 
     <!-- Logo central de Llama ApuCcino -->
+
     <ImageView
         android:id="@+id/icSplash"
-        android:layout_width="120dp"
-        android:layout_height="0dp"
-        android:contentDescription="Logo Llama ApuCcino"
-        android:scaleType="centerInside"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:src="@drawable/ic_splash"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

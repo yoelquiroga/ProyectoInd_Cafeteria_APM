@@ -7,10 +7,10 @@
     <!-- Tema de Splash -->
     <style name="Theme.ProyectoCafeteria.Splash" parent="Theme.SplashScreen">
         <!-- Fondo del splash -->
-        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenBackground">@color/gris_claro</item>
 
         <!-- Tu logo para el splash -->
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/bg_fondo_splah</item>
 
         <!-- Duración mínima del splash (en ms) -->
         <item name="windowSplashScreenAnimationDuration">2000</item>
