@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoCafeteria">
         <activity
+            android:name=".RegistrarseActivity"
+            android:exported="false" />
+        <activity
             android:name=".AccesoActivity"
             android:exported="false" />
         <activity
@@ -23,10 +26,10 @@
             android:theme="@style/Theme.ProyectoCafeteria.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

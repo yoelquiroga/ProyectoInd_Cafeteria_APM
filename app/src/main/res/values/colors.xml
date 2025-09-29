@@ -2,6 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="marron1">#A85343</color>
+    <color name="rojo1">#DB4B35</color>
+    <color name="gris_oscuro">#5E5B5B</color>
+    <color name="marron2">#CDC3BC</color>
+    <color name="verde_olivo">#B8B8A3</color>
+    <color name="gris_claro2">#F0F0F0</color>
     <color name="gris_claro">#e7e7e7</color>
-
+    <color name="gris_seminegro">#C4C4C4</color>
 </resources>
