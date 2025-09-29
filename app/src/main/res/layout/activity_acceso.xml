@@ -28,6 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+
     <LinearLayout
         android:id="@+id/llCabezera"
         android:layout_width="0dp"
@@ -65,60 +66,56 @@
             android:text="Estamos esperándote, por favor ingresa tus datos"
             android:textColor="@color/gris_oscuro"
             android:textSize="14sp" />
-
     </LinearLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilCorreo"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="90dp"
+        android:hint="Correo"
         app:layout_constraintTop_toBottomOf="@id/llCabezera"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         app:boxBackgroundColor="#F7EEEE"
-        app:boxStrokeWidth="2dp"
-        app:startIconDrawable="@drawable/ic_correo_small">
-       >
+        app:boxStrokeWidth="2dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietCorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Correo"
-            android:inputType="textEmailAddress"
-
-            />
+            android:inputType="textEmailAddress"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <!-- Campo de Contraseña -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilContraseña"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:hint="Correo"
         app:layout_constraintTop_toBottomOf="@id/tilCorreo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:endIconMode="password_toggle"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         app:boxBackgroundColor="#F7EEEE"
-        app:boxStrokeWidth="2dp"
-        app:startIconDrawable="@drawable/ic_pass_small" >
+        app:boxStrokeWidth="2dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietContraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            app:startIconDrawable="@drawable/ic_pass_small"
+            />
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btnLogin"
