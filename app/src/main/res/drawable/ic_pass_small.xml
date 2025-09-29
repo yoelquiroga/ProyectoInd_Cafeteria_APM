@@ -3,5 +3,5 @@
     <item
         android:width="20dp"
         android:height="20dp"
-        android:drawable="@drawable/ic_correo" />
+        android:drawable="@drawable/ic_pass" />
 </layer-list>

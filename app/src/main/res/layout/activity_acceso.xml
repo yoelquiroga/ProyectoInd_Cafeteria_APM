@@ -82,14 +82,17 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         app:boxBackgroundColor="#F7EEEE"
         app:boxStrokeWidth="2dp"
-        app:startIconDrawable="@drawable/ic_correo"  >
+        app:startIconDrawable="@drawable/ic_correo_small">
+       >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietCorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Correo"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -107,7 +110,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         app:boxBackgroundColor="#F7EEEE"
         app:boxStrokeWidth="2dp"
-        app:startIconDrawable="@drawable/ic_pass" >
+        app:startIconDrawable="@drawable/ic_pass_small" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tietContraseña"
