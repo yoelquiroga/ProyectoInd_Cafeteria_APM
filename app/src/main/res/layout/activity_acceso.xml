@@ -70,7 +70,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilCorreo"
+        android:id="@+id/tilCorreologin"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
         app:boxStrokeWidth="2dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietCorreo"
+            android:id="@+id/tietCorreologin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"/>
@@ -93,13 +93,13 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilContraseña"
+        android:id="@+id/tilContraseñalogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:hint="Correo"
-        app:layout_constraintTop_toBottomOf="@id/tilCorreo"
+        android:hint="Contraseña"
+        app:layout_constraintTop_toBottomOf="@id/tilCorreologin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:endIconMode="password_toggle"
@@ -108,7 +108,7 @@
         app:boxStrokeWidth="2dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietContraseña"
+            android:id="@+id/tietContraseñalogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -121,12 +121,12 @@
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
+        android:text="Inicar Sesión"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#2E2E2E"
-        app:layout_constraintTop_toBottomOf="@id/tilContraseña"
+        app:layout_constraintTop_toBottomOf="@id/tilContraseñalogin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

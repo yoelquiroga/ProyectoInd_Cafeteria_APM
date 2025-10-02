@@ -82,55 +82,55 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilCorreoTelefono"
+                android:id="@+id/tilCorreoRegis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 app:boxBackgroundColor="#F7EEEE"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="2dp"
+                android:hint="Correo">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tietCorreoTelefono"
+                    android:id="@+id/CorreoRegis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Correo"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilUsuario"
+                android:id="@+id/tilNombreUsu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 app:boxBackgroundColor="#F7EEEE"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="2dp"
+                android:hint="Nombre Usuario">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tietUsuario"
+                    android:id="@+id/tietNombreUsu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Usuario"
-                    android:inputType="textVisiblePassword"
+                    android:inputType="textCapWords"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilContraseña"
+                android:id="@+id/tilContraseñaRegis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:endIconMode="password_toggle"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 app:boxBackgroundColor="#F7EEEE"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="2dp"
+                android:hint="Contraseña">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tietContraseña"
+                    android:id="@+id/tietContraseñaRegis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Contraseña"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -142,13 +142,13 @@
                 app:endIconMode="password_toggle"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 app:boxBackgroundColor="#F7EEEE"
-                app:boxStrokeWidth="2dp">
+                app:boxStrokeWidth="2dp"
+                android:hint="Confirmar Contraseña">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tietConfirmarContraseña"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Confirmar Contraseña"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
