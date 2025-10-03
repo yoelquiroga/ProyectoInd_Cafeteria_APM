@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -21,6 +23,8 @@ class RegistrarseActivity : AppCompatActivity() {
     private lateinit var tietConfirmarContraseña : TextInputEditText
     private lateinit var btnRegistrarse : Button
     private lateinit var tvIniciarSesion : TextView
+    private lateinit var  rgSexo : RadioGroup
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +38,8 @@ class RegistrarseActivity : AppCompatActivity() {
         tietConfirmarContraseña = findViewById(R.id.tietConfirmarContraseña)
         btnRegistrarse = findViewById(R.id.btnRegistrarse)
         tvIniciarSesion = findViewById(R.id.tvIniciarSesion)
+        rgSexo = findViewById(R.id.rgSexo)
+
 
 
 
@@ -50,6 +56,7 @@ class RegistrarseActivity : AppCompatActivity() {
             val nombreusu = tietNombreUsu.text.toString().trim()
             val contraseñaregis = tietContraseñaRegis.text.toString().trim()
             val confirmarpass = tietConfirmarContraseña.text.toString().trim()
+            val generoId   =  rgSexo.checkedRadioButtonId
 
             if (correoregis.isEmpty()){
                 Toast.makeText(this, "Ingrese un correo", Toast.LENGTH_SHORT).show()
@@ -71,28 +78,36 @@ class RegistrarseActivity : AppCompatActivity() {
                 Toast.makeText(this, "Las contraseña no son iguales", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            if (generoId == -1) {
+                Toast.makeText(this, "Eliga un género", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val generoid = when(generoId){
+                R.id.rbMasculino -> "Masculino"
+                R.id.rbFemenino -> "Femenino"
+                else -> "Otros"
+                }
+
 
             val prefs = getSharedPreferences("RegistroUsu", Context.MODE_PRIVATE)
             with(prefs.edit()) {
                 putString("passregis", contraseñaregis)
                 putString("nombreusuario", nombreusu)
                 putString("correoregis", correoregis)
+                putString("generoid", generoid)
                 apply()
             }
 
                 val intent = Intent(this, AccesoActivity::class.java)
                 startActivity(intent)
-
         }
-
-
 
         //Ir al Login
         tvIniciarSesion.setOnClickListener {
             val intent = Intent(this, AccesoActivity::class.java)
             startActivity(intent)
         }
-
 
     }
 }

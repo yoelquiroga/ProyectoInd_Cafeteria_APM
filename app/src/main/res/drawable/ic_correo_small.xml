@@ -3,9 +3,6 @@
     <item
         android:width="20dp"
         android:height="20dp"
-        android:gravity="right"
         android:drawable="@drawable/ic_correo"
         />
-
-
 </layer-list>

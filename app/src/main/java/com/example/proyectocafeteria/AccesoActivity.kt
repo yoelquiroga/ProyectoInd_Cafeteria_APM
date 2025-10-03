@@ -42,6 +42,7 @@ class AccesoActivity : AppCompatActivity() {
         val correoregistro = prefs.getString("correoregis", "")
         val contraseñaregistro = prefs.getString("passregis", "")
         val nombreusu = prefs.getString("nombreusuario", "")
+        val generoid  = prefs.getString("generoid", "")
 
         //Iniciar Sesion en Home
         btnLogin.setOnClickListener {
@@ -76,6 +77,7 @@ class AccesoActivity : AppCompatActivity() {
 
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.putExtra("nombreusuario", nombreusu)
+                intent.putExtra("generoid", generoid)
                 startActivity(intent)
             }
 

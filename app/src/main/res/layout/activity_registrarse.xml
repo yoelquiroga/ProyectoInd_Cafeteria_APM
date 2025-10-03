@@ -125,13 +125,15 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 app:boxBackgroundColor="#F7EEEE"
                 app:boxStrokeWidth="2dp"
-                android:hint="Contraseña">
+                android:hint="Contraseña"
+                app:startIconDrawable="@drawable/ic_pass_small">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tietContraseñaRegis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:paddingStart="45dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -143,14 +145,62 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 app:boxBackgroundColor="#F7EEEE"
                 app:boxStrokeWidth="2dp"
-                android:hint="Confirmar Contraseña">
+                android:hint="Confirmar Contraseña"
+                app:startIconDrawable="@drawable/ic_pass_small">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tietConfirmarContraseña"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:paddingStart="45dp"/>
             </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sexo:"
+                    android:textSize="15sp"
+                    android:layout_marginEnd="2dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgSexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbMasculino"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Masculino"
+                        android:textColor="@color/gris_oscuro"/>
+
+                    <RadioButton
+                        android:id="@+id/rbFemenino"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Femenino"
+                        android:textColor="@color/gris_oscuro"/>
+                    <RadioButton
+                        android:id="@+id/rbOtros"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Otros"
+                        android:textColor="@color/gris_oscuro"/>
+
+                </RadioGroup>
+            </LinearLayout>
+
+
 
 
             <Button
@@ -188,11 +238,15 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:textColor="@color/black" />
-
             </LinearLayout>
 
+
+
+
+
+
+
+
         </LinearLayout>
-
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
