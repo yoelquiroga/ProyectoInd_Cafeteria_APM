@@ -32,7 +32,7 @@ class HomeActivity : AppCompatActivity() {
         val generoid = intent.getStringExtra("generoid") ?:"no se encontro img"
 
         when(generoid){
-            "Masculio" -> ivGenero.setImageResource(R.drawable.ic_hombre)
+            "Masculino" -> ivGenero.setImageResource(R.drawable.ic_hombre)
             "Femenino" -> ivGenero.setImageResource(R.drawable.ic_mujer)
             else -> ivGenero.setImageResource(R.drawable.ic_otros)
 
