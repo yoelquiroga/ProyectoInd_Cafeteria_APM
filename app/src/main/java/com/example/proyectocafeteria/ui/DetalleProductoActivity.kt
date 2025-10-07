@@ -10,7 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proyectocafeteria.R
+import com.example.proyectocafeteria.entity.CarritoItem
 import com.example.proyectocafeteria.entity.Producto
+
+
 class DetalleProductoActivity : AppCompatActivity() {
 
 
@@ -21,6 +24,12 @@ class DetalleProductoActivity : AppCompatActivity() {
     private lateinit var btnAgregarCarrito: Button
     private lateinit var ivBack: ImageView
     private lateinit var ivFavorito: ImageView
+
+
+    // Lista global para el carrito
+    companion object {
+        val carritoGlobal = mutableListOf<CarritoItem>()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,20 +50,22 @@ class DetalleProductoActivity : AppCompatActivity() {
             insets
         }
 
-        // Recibir solo el ID
+        // Recibir solo el id del prodcuto
         val idProducto = intent.getStringExtra("idProducto") ?: return
 
         // Buscar el producto en la lista (igual que en HomeActivity)
         val producto = getMockProducts().find { it.id == idProducto } ?: return
 
-        // Mostrar datos
+        // Mostrar datoss
         ivImagen.setImageResource(producto.imageUrl)
         tvNombre.text = producto.nombre
         tvDescripcion.text = producto.descripcion
         tvPrecio.text = "$${producto.precio}"
 
-        // Botón Agregar al carrito
+        // Botón agregar al carrito
         btnAgregarCarrito.setOnClickListener {
+            val item = CarritoItem(producto.id, producto.nombre, producto.precio, producto.imageUrl)
+            DetalleProductoActivity.carritoGlobal.add(item)
             Toast.makeText(this, "Agregado: ${producto.nombre}", Toast.LENGTH_SHORT).show()
         }
 
@@ -81,4 +92,6 @@ class DetalleProductoActivity : AppCompatActivity() {
             Producto("8", "Macchiato", "Espresso, Foam", 9.5, R.drawable.latte2)
         )
     }
+
 }
+

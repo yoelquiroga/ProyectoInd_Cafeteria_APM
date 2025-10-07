@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectocafeteria.R
 import com.example.proyectocafeteria.adapter.ProductoAdapter
 import com.example.proyectocafeteria.entity.Producto
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var tvNombreUsuario: TextView
@@ -31,7 +32,6 @@ class HomeActivity : AppCompatActivity() {
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario)
         tvCerraSesion = findViewById(R.id.tvCerrarSesion)
         ivGenero = findViewById(R.id.ivGenero)
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -50,31 +50,47 @@ class HomeActivity : AppCompatActivity() {
         }
         tvNombreUsuario.text = "$nombreusuario"
 
-
         //Boton de cerrar sesión
         tvCerraSesion.setOnClickListener {
             val intent = Intent(this, AccesoActivity::class.java)
             startActivity(intent)
         }
 
-
         // Configurar el RecyclerView
         val rvProductos = findViewById<RecyclerView>(R.id.rvProductos)
         rvProductos.layoutManager = GridLayoutManager(this, 2) // 2 columnas
         rvProductos.adapter = ProductoAdapter(getMockProducts())
+
+        // 👇 Configurar BottomNavigationView para abrir el carrito
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_carrito -> {
+                    val intent = Intent(this, CarritoActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                else -> {
+                    bottomNav.menu.findItem(R.id.nav_carrito).isChecked = false
+                    false
+                }
+            }
+        }
+
+    }
+        // Datos temporales de prueba para después cargarlos cuando nos enseñe SqlLite
+        private fun getMockProducts(): List<Producto> {
+            return listOf(
+                Producto("1", "Cappuccino", "Espresso, Milk", 12.5, R.drawable.capu1),
+                Producto("2", "Espresso", "Espresso", 9.5, R.drawable.expre1),
+                Producto("3", "Latte", "Espresso, Milk", 12.0, R.drawable.latt1),
+                Producto("4", "Americano", "Espresso, Water", 9.0, R.drawable.ame1),
+                Producto("5", "Mocha", "Espresso, Chocolate, Milk", 15.0, R.drawable.ame3),
+                Producto("6", "Flat White", "Espresso, Steamed Milk", 12.5, R.drawable.capu5),
+                Producto("7", "Cold Brew", "Cold Brew Coffee", 12.0, R.drawable.capu6),
+                Producto("8", "Macchiato", "Espresso, Foam", 9.5, R.drawable.latte2)
+            )
+        }
     }
 
-    // Datos temporales de prueba para después cargarlos cuando nos enseñe SqlLite
-    private fun getMockProducts(): List<Producto> {
-        return listOf(
-            Producto("1", "Cappuccino", "Espresso, Milk", 12.5, R.drawable.capu1),
-            Producto("2", "Espresso", "Espresso", 9.5, R.drawable.expre1),
-            Producto("3", "Latte", "Espresso, Milk", 12.0, R.drawable.latt1),
-            Producto("4", "Americano", "Espresso, Water", 9.0, R.drawable.ame1),
-            Producto("5", "Mocha", "Espresso, Chocolate, Milk", 15.0, R.drawable.ame3),
-            Producto("6", "Flat White", "Espresso, Steamed Milk", 12.5, R.drawable.capu5),
-            Producto("7", "Cold Brew", "Cold Brew Coffee", 12.0, R.drawable.capu6),
-            Producto("8", "Macchiato", "Espresso, Foam", 9.5, R.drawable.latte2)
-        )
-    }
-}

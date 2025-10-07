@@ -40,7 +40,7 @@ class ProductoAdapter(private val productos: List<Producto>):
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, DetalleProductoActivity::class.java)
-            intent.putExtra("idProducto", producto.id) // Solo el ID
+            intent.putExtra("idProducto", producto.id) // Se llama solo por id, hasta que el profesor nos enseñe parceable
             context.startActivity(intent)
         }
     }

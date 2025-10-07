@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoCafeteria">
         <activity
+            android:name=".ui.CarritoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.DetalleProductoActivity"
             android:exported="false" />
         <activity
