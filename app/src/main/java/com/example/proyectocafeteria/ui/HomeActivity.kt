@@ -61,7 +61,7 @@ class HomeActivity : AppCompatActivity() {
         rvProductos.layoutManager = GridLayoutManager(this, 2) // 2 columnas
         rvProductos.adapter = ProductoAdapter(getMockProducts())
 
-        // 👇 Configurar BottomNavigationView para abrir el carrito
+        //  BottomNavigationView para abrir el carrito
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {

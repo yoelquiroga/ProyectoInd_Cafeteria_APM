@@ -10,8 +10,6 @@
 
 
 
-    <!-- ScrollView para el contenido scrollable -->
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
@@ -25,7 +23,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Encabezado: Perfil + Notificaciones + Configuración -->
+
             <LinearLayout
                 android:id="@+id/llEncabezado"
                 android:layout_width="match_parent"
@@ -68,8 +66,6 @@
 
             </LinearLayout>
 
-            <!-- Banner -->
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -98,7 +94,7 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
-            <!-- Categorías -->
+
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -167,8 +163,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
-
-            <!-- RecyclerView -->
+            
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvProductos"
                 android:layout_width="match_parent"
@@ -194,4 +189,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/botom_nav_menu"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
