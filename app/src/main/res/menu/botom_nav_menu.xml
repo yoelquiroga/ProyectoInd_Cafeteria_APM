@@ -4,19 +4,19 @@
     android:background="@android:color/transparent">
 
     <item
-        android:id="@+id/nav_explorador"
-        android:icon="@drawable/ic_explorerr"
-        android:title="" />
+        android:id="@+id/nav_Home"
+        android:icon="@drawable/ic_home"
+        android:title="Casa" />
     <item
         android:id="@+id/nav_carrito"
         android:icon="@drawable/ic_carrito"
-        android:title="" />
+        android:title="Carrito" />
     <item
         android:id="@+id/nav_favoritos"
         android:icon="@drawable/ic_corazon"
-        android:title=""/>
+        android:title="Favoritos"/>
     <item
         android:id="@+id/nav_perfil"
         android:icon="@drawable/ic_perfil"
-        android:title=""/>
+        android:title="Perfíl"/>
 </menu>

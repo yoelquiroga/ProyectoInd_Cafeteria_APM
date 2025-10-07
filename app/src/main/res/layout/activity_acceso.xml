@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F7EEEE"
-    tools:context=".AccesoActivity">
-
+    tools:context=".ui.AccesoActivity">
 
     <ImageView
         android:id="@+id/logo_negro"
@@ -28,7 +27,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-
     <LinearLayout
         android:id="@+id/gpCentral"
         android:layout_width="0dp"
@@ -41,7 +39,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Encabezado -->
         <LinearLayout
             android:id="@+id/llCabezera"
             android:layout_width="match_parent"
@@ -76,7 +73,6 @@
 
         </LinearLayout>
 
-        <!-- Campo: Correo con icono y espacio -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilCorreologin"
             android:layout_width="match_parent"
@@ -97,7 +93,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo: Contraseña -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilContraseñalogin"
             android:layout_width="match_parent"
@@ -119,7 +114,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Botón Iniciar Sesión -->
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="190dp"
@@ -131,7 +125,6 @@
 
     </LinearLayout>
 
-    <!-- Texto inferior: ¿No tienes cuenta? -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,5 +154,4 @@
             android:textColor="@color/marron_oscuro" />
 
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

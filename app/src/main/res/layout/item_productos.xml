@@ -3,17 +3,16 @@
     android:layout_width="160dp"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
+    app:cardCornerRadius="16dp"
     app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp"
-        android:background="@color/black">
+        android:padding="10dp"
+        android:background="@color/gris_claro">
 
-        <!-- Imagen del producto -->
         <ImageView
             android:id="@+id/ivImagen"
             android:layout_width="match_parent"
@@ -22,7 +21,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/capu1" />
 
-        <!-- Nombre del producto -->
         <TextView
             android:id="@+id/tvNombre"
             android:layout_width="wrap_content"
@@ -30,18 +28,17 @@
             android:layout_marginTop="8dp"
             android:text="Cappuccino"
             android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
-        <!-- Descripción -->
         <TextView
             android:id="@+id/tvDescripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Espresso, Milk"
             android:textSize="12sp"
-            android:textColor="#666666" />
+            android:textColor="@color/black" />
 
-        <!-- Precio + Botón Agregar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +46,6 @@
             android:gravity="center_vertical"
             android:layout_marginTop="8dp">
 
-            <!-- Precio -->
             <TextView
                 android:id="@+id/tvPrecio"
                 android:layout_width="0dp"
@@ -57,20 +53,16 @@
                 android:layout_weight="1"
                 android:text="$4.5"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
-            <!-- Botón + -->
             <ImageView
-                android:id="@+id/btnAdd"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/icadd"
-                android:textSize="16sp"
-                android:background="@drawable/btn_add"
-                android:clickable="true"/>
-
+                android:id="@+id/ivFavoritos"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_corazon"
+                android:layout_gravity="bottom"/>
         </LinearLayout>
 
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

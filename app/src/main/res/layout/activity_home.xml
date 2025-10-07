@@ -5,9 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".ui.HomeActivity"
+    android:background="@color/verde_olivo">
 
-    <!-- Barra de navegación inferior (fija) -->
+
 
     <!-- ScrollView para el contenido scrollable -->
 
@@ -46,7 +47,8 @@
                     android:layout_marginStart="13dp"
                     android:textSize="16sp"
                     android:text="awdawd"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
 
                 <TextView
                     android:id="@+id/tvCerrarSesion"
@@ -57,24 +59,17 @@
                     android:layout_marginStart="13dp"
                     android:text="Cerrar Sesión"
                     android:layout_marginEnd="5dp"
-                    android:textColor="@color/marron2"
                     android:layout_weight="1"
                     android:clickable="true"
                     android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
 
 
             </LinearLayout>
 
             <!-- Banner -->
-            <ImageView
-                android:id="@+id/ivBanner"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/bghomee5" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,7 +84,8 @@
                     android:layout_marginTop="16dp"
                     android:text="Categoría"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/tvVerTodo"
@@ -98,7 +94,7 @@
                     android:layout_marginStart="230dp"
                     android:layout_marginTop="16dp"
                     android:text="Ver todo"
-                    android:textColor="@color/gris_oscuro"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -161,7 +157,6 @@
 
             </HorizontalScrollView>
 
-            <!-- Popular Coffees -->
             <TextView
                 android:id="@+id/tvPopularCoffees"
                 android:layout_width="wrap_content"
@@ -170,7 +165,8 @@
                 android:layout_marginTop="20dp"
                 android:text="Café Populares"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <!-- RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
@@ -187,16 +183,15 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/gris_claro"
-        app:labelVisibilityMode="unlabeled"
+        android:layout_height="wrap_content"
+        android:background="@color/black_transparente"
         app:itemBackground="@android:color/transparent"
-        app:itemRippleColor="@color/black"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:itemHorizontalTranslationEnabled="false"
-        app:itemIconTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/botom_nav_menu" />
+        app:menu="@menu/botom_nav_menu"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

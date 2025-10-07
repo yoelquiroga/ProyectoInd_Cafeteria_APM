@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="black_transparente">#DF2C2C2C</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="marron1">#A85343</color>
     <color name="rojo1">#DB4B35</color>
     <color name="gris_oscuro">#77242323</color>
     <color name="marron2">#525041</color>
-    <color name="verde_olivo">#B8B8A3</color>
+    <color name="verde_olivo">#73B8B8A3</color>
     <color name="gris_claro2">#8E8E8E</color>
-    <color name="gris_claro">#e7e7e7</color>
-    <color name="gris_seminegro">#464545</color>
+    <color name="gris_claro">#83F5F5F5</color>
+    <color name="gris_seminegro">#D8464545</color>
     <color name="marron_oscuro">#39300B</color>
     <color name="amarrillo">#BD920B</color>
 </resources>
