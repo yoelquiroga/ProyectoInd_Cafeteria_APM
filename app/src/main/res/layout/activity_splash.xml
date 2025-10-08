@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_logo_splash"
 
-    tools:context=".SplashActivity">
+    tools:context=".ui.SplashActivity">
 
     <!-- Logo central de Llama ApuCcino -->
 

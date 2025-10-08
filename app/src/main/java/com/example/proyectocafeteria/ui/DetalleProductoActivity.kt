@@ -13,9 +13,7 @@ import com.example.proyectocafeteria.R
 import com.example.proyectocafeteria.entity.CarritoItem
 import com.example.proyectocafeteria.entity.Producto
 
-
 class DetalleProductoActivity : AppCompatActivity() {
-
 
     private lateinit var ivImagen: ImageView
     private lateinit var tvNombre: TextView
@@ -25,8 +23,6 @@ class DetalleProductoActivity : AppCompatActivity() {
     private lateinit var ivBack: ImageView
     private lateinit var ivFavorito: ImageView
 
-
-    // Lista global para el carrito
     companion object {
         val carritoGlobal = mutableListOf<CarritoItem>()
     }
@@ -50,48 +46,48 @@ class DetalleProductoActivity : AppCompatActivity() {
             insets
         }
 
-        // Recibir solo el id del prodcuto
         val idProducto = intent.getStringExtra("idProducto") ?: return
 
-        // Buscar el producto en la lista (igual que en HomeActivity)
-        val producto = getMockProducts().find { it.id == idProducto } ?: return
+        // Buscar el producto en la lista global
+        val producto = HomeActivity.listaCompleta.find { it.id == idProducto } ?: return
 
-        // Mostrar datoss
+        // Mostrar datos
         ivImagen.setImageResource(producto.imageUrl)
         tvNombre.text = producto.nombre
         tvDescripcion.text = producto.descripcion
-        tvPrecio.text = "$${producto.precio}"
+        tvPrecio.text = "S/ ${producto.precio}"
 
-        // Botón agregar al carrito
+        // Mostrar estado de favorito
+        ivFavorito.setImageResource(
+            if (producto.esFavorito) R.drawable.ic_corazon_relleno
+            else R.drawable.ic_corazon
+        )
+
+        // Cambiar de imagen al hacer click al ic_corazon
+        ivFavorito.setOnClickListener {
+            producto.esFavorito = !producto.esFavorito
+            ivFavorito.setImageResource(
+                if (producto.esFavorito) R.drawable.ic_corazon_relleno
+                else R.drawable.ic_corazon
+            )
+
+            HomeActivity.adaptadorHome?.notifyDataSetChanged()
+            Toast.makeText(this,
+                if (producto.esFavorito) "Agregado a favoritos"
+                else "Eliminado de favoritos",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        // agregarr al carrito
         btnAgregarCarrito.setOnClickListener {
             val item = CarritoItem(producto.id, producto.nombre, producto.precio, producto.imageUrl)
-            DetalleProductoActivity.carritoGlobal.add(item)
+            carritoGlobal.add(item)
             Toast.makeText(this, "Agregado: ${producto.nombre}", Toast.LENGTH_SHORT).show()
         }
 
-        // Botón Volver
-        ivBack.setOnClickListener {
-            finish()
-        }
 
-        // Botón Favorito
-        ivFavorito.setOnClickListener {
-            Toast.makeText(this, "Marcado como favorito", Toast.LENGTH_SHORT).show()
-        }
-
-    }
-    private fun getMockProducts(): List<Producto> {
-        return listOf(
-            Producto("1", "Cappuccino", "Espresso, Milk", 12.5, R.drawable.capu1),
-            Producto("2", "Espresso", "Espresso", 9.5, R.drawable.expre1),
-            Producto("3", "Latte", "Espresso, Milk", 12.0, R.drawable.latt1),
-            Producto("4", "Americano", "Espresso, Water", 9.0, R.drawable.ame1),
-            Producto("5", "Mocha", "Espresso, Chocolate, Milk", 15.0, R.drawable.ame3),
-            Producto("6", "Flat White", "Espresso, Steamed Milk", 12.5, R.drawable.capu5),
-            Producto("7", "Cold Brew", "Cold Brew Coffee", 12.0, R.drawable.capu6),
-            Producto("8", "Macchiato", "Espresso, Foam", 9.5, R.drawable.latte2)
-        )
+        ivBack.setOnClickListener { finish() }
     }
 
 }
-

@@ -38,6 +38,7 @@ class CarritoAdapter (
             onEliminar(position)
         }
     }
-
-    override fun getItemCount() = carrito.size
+    override fun getItemCount(): Int {
+        return carrito.size
+    }
 }
