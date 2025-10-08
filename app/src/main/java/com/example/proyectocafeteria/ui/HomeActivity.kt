@@ -19,7 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var tvNombreUsuario: TextView
-    private lateinit var tvCerraSesion: TextView
+
     private lateinit var ivGenero: ImageView
     private lateinit var rvProductos: RecyclerView
     private var categoriaActual: String = "Todas"
@@ -36,7 +36,6 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario)
-        tvCerraSesion = findViewById(R.id.tvCerrarSesion)
         ivGenero = findViewById(R.id.ivGenero)
         rvProductos = findViewById(R.id.rvProductos)
         bottomNav = findViewById(R.id.bottomNav)
@@ -57,10 +56,11 @@ class HomeActivity : AppCompatActivity() {
         }
         tvNombreUsuario.text = "$nombreusuario"
 
-        tvCerraSesion.setOnClickListener {
-            val intent = Intent(this, AccesoActivity::class.java)
-            startActivity(intent)
-        }
+
+
+
+
+        //Lista productos
 
         listaCompleta = getMockProducts()
 
@@ -78,6 +78,7 @@ class HomeActivity : AppCompatActivity() {
             filtrarPorCategoria("Todas")
         }
 
+        //Navega entre iconos del navegation,del home carrito y eso
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> true
@@ -89,6 +90,12 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.nav_favoritos -> {
                     val intent = Intent(this, FavoritosActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_perfil -> {
+                    val intent = Intent(this, PerfilActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                     startActivity(intent)
                     true

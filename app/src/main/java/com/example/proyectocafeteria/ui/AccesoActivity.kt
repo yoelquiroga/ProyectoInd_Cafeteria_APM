@@ -86,7 +86,6 @@ class AccesoActivity : AppCompatActivity() {
 
         }
 
-
         tvRegistrarse.setOnClickListener {
             val intent = Intent(this, RegistrarseActivity::class.java)
             startActivity(intent)
