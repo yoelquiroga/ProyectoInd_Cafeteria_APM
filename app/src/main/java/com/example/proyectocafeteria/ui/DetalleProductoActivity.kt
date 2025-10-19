@@ -23,12 +23,9 @@ class DetalleProductoActivity : AppCompatActivity() {
     private lateinit var btnAgregarCarrito: Button
     private lateinit var ivBack: ImageView
     private lateinit var ivFavorito: ImageView
-    private lateinit var btnMenos: Button
-    private lateinit var btnMas: Button
+    private lateinit var btnMenos: TextView
+    private lateinit var btnMas: TextView
     private lateinit var tvCantidad: TextView
-    private lateinit var btnTamanioS: Button
-    private lateinit var btnTamanioM: Button
-    private lateinit var btnTamanioL: Button
 
     companion object {
         val carritoGlobal = mutableListOf<CarritoItem>()
@@ -52,22 +49,14 @@ class DetalleProductoActivity : AppCompatActivity() {
         btnMenos = findViewById(R.id.btnMenos)
         btnMas = findViewById(R.id.btnMas)
         tvCantidad = findViewById(R.id.tvCantidad)
-        btnTamanioS = findViewById(R.id.btnTamanioS)
-        btnTamanioM = findViewById(R.id.btnTamanioM)
-        btnTamanioL = findViewById(R.id.btnTamanioL)
 
-        // Inicializar botones de tamaño
-        btnTamanioS.setOnClickListener {
-            actualizarBotonesTamanio()
+
+        ivBack.setOnClickListener {
+            finish()
         }
 
-        btnTamanioM.setOnClickListener {
-            actualizarBotonesTamanio()
-        }
-
-        btnTamanioL.setOnClickListener {
-            actualizarBotonesTamanio()
-        }
+        // Inicializar el TextView de cantidad
+        tvCantidad.text = cantidad.toString()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -96,16 +85,16 @@ class DetalleProductoActivity : AppCompatActivity() {
 
         // Mostrar estado de favorito
         ivFavorito.setImageResource(
-            if (producto.esFavorito) R.drawable.ic_corazon_relleno
-            else R.drawable.ic_corazon
+            if (producto.esFavorito) R.drawable.ic_corazon_relleno_blanco
+            else R.drawable.ic_corazon_blanco
         )
 
         // Cambiar de imagen al hacer click al corazón
         ivFavorito.setOnClickListener {
             producto.esFavorito = !producto.esFavorito
             ivFavorito.setImageResource(
-                if (producto.esFavorito) R.drawable.ic_corazon_relleno
-                else R.drawable.ic_corazon
+                if (producto.esFavorito) R.drawable.ic_corazon_relleno_blanco
+                else R.drawable.ic_corazon_blanco
             )
 
             HomeActivity.adaptadorHome?.notifyDataSetChanged()
@@ -132,25 +121,34 @@ class DetalleProductoActivity : AppCompatActivity() {
             actualizarPrecioTotal()
         }
 
-        // Agregar al carrito (con la cantidad y tamaño seleccionados)
+        // Agregar al carrito con la cantidad seleccionada
         btnAgregarCarrito.setOnClickListener {
-            val item = CarritoItem(producto.id.toString(), producto.nombre, producto.precio, producto.imageUrl)
-            // Añadir la cantidad seleccionada al carrito
-            for (i in 1..cantidad) {
-                carritoGlobal.add(item)
+            // Buscar si el producto ya está en el carrito
+            val existingItem = carritoGlobal.find { it.id == producto.id }
+
+            if (existingItem != null) {
+                // Si ya existe, actualiza la cantidad
+                existingItem.cantidad += cantidad
+                Toast.makeText(
+                    this,
+                    "Actualizado: ${producto.nombre} x ${existingItem.cantidad}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                // Si no existe, créalo
+                val newItem = CarritoItem(
+                    producto.id,
+                    producto.nombre,
+                    producto.descripcion,
+                    producto.precio,
+                    producto.imageUrl,
+                    cantidad
+                )
+                carritoGlobal.add(newItem)
+                Toast.makeText(this, "Agregado: ${producto.nombre} x $cantidad", Toast.LENGTH_SHORT)
+                    .show()
             }
-            Toast.makeText(this, "Agregado: ${producto.nombre} x $cantidad", Toast.LENGTH_SHORT).show()
         }
-
-        ivBack.setOnClickListener { finish() }
-    }
-
-
-
-    private fun actualizarBotonesTamanio() {
-        btnTamanioS.backgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
-        btnTamanioM.backgroundTintList = ContextCompat.getColorStateList(this, R.color.black)
-        btnTamanioL.backgroundTintList = ContextCompat.getColorStateList(this, R.color.white)
     }
 
     private fun actualizarPrecioTotal() {

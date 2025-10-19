@@ -76,8 +76,9 @@ class CarritoActivity : AppCompatActivity() {
         }
     }
 
-    private fun actualizarTotal() {
-        val total = DetalleProductoActivity.carritoGlobal.sumOf { it.precio }
+    // Función pública para que CarritoAdapter pueda llamarla
+    fun actualizarTotal() {
+        val total = DetalleProductoActivity.carritoGlobal.sumOf { it.precio * it.cantidad }
         tvTotal.text = "Total: S/ ${String.format("%.2f", total)}"
     }
 }

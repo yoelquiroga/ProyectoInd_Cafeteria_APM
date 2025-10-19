@@ -28,10 +28,12 @@
             android:exported="false" />
         <activity
             android:name=".ui.RegistrarseActivity"
-            android:exported="false" />
+
+            android:exported="false"/>
         <activity
             android:name=".ui.AccesoActivity"
-            android:exported="false" />
+
+            android:exported="false"/>
         <activity
             android:name=".ui.BienvenidaActivity"
             android:exported="false" />

@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectocafeteria.R
+import com.example.proyectocafeteria.entity.CarritoItem
 import com.example.proyectocafeteria.entity.Producto
 import com.example.proyectocafeteria.ui.DetalleProductoActivity
 import com.example.proyectocafeteria.ui.FavoritosActivity
@@ -29,6 +30,7 @@ class ProductoAdapter(private val productos: MutableList<Producto>) :
         val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
         val tvPrecio: TextView = itemView.findViewById(R.id.tvPrecio)
         val ivFavoritos: ImageView = itemView.findViewById(R.id.ivFavoritos)
+        val ivAgregar: ImageView = itemView.findViewById(R.id.ivAgregar)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoViewHolder {
@@ -59,7 +61,7 @@ class ProductoAdapter(private val productos: MutableList<Producto>) :
             )
 
             // Notificar a HomeActivity
-          HomeActivity.adaptadorHome?.notifyDataSetChanged()
+            HomeActivity.adaptadorHome?.notifyDataSetChanged()
 
             // Notificar a FavoritosActivity si está abierta
             if (holder.itemView.context is FavoritosActivity) {
@@ -75,7 +77,23 @@ class ProductoAdapter(private val productos: MutableList<Producto>) :
             ).show()
         }
 
-
+        // Clic en el ícono de agregar al carrito
+        holder.ivAgregar.setOnClickListener {
+            val item = CarritoItem(
+                id = producto.id,
+                nombre = producto.nombre,
+                descripcion = producto.descripcion,
+                precio = producto.precio,
+                imageUrl = producto.imageUrl,
+                cantidad = 1
+            )
+            DetalleProductoActivity.carritoGlobal.add(item)
+            Toast.makeText(
+                holder.itemView.context,
+                "Agregado: ${producto.nombre}",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context

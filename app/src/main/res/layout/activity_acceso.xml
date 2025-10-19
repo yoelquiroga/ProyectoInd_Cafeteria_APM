@@ -1,157 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7EEEE"
-    tools:context=".ui.AccesoActivity">
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/logo_negro"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_logoo_negro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="15dp"
-        android:src="@drawable/ic_letra_negro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <LinearLayout
-        android:id="@+id/gpCentral"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintTop_toBottomOf="@id/logo_negro"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:background="#F7EEEE"
+        tools:context=".ui.AccesoActivity">
+
+        <ImageView
+            android:id="@+id/logo_negro"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_logoo_negro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_letra_negro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <LinearLayout
-            android:id="@+id/llCabezera"
-            android:layout_width="match_parent"
+            android:id="@+id/gpCentral"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintTop_toBottomOf="@id/logo_negro"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-            <TextView
-                android:id="@+id/tvHola"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/llCabezera"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="¡Hola!"
-                android:textColor="@color/marron_oscuro"
-                android:textSize="63sp"
-                android:textStyle="bold" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvBienvenido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bienvenido"
-                android:textColor="@color/marron_oscuro"
-                android:textSize="63sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvHola"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¡Hola!"
+                    android:textColor="@color/marron_oscuro"
+                    android:textSize="63sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvDescription"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tvBienvenido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bienvenido"
+                    android:textColor="@color/marron_oscuro"
+                    android:textSize="63sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estamos esperándote, por favor ingresa tus datos"
+                    android:textColor="@color/gris_oscuro"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCorreologin"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estamos esperándote, por favor ingresa tus datos"
-                android:textColor="@color/gris_oscuro"
-                android:textSize="14sp" />
+                android:layout_marginTop="40dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                app:boxBackgroundColor="#F7EEEE"
+                app:boxStrokeWidth="2dp"
+                app:startIconDrawable="@drawable/ic_correo_small"
+                android:hint="Correo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietCorreologin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="45dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilContraseñalogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:endIconMode="password_toggle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                app:boxBackgroundColor="#F7EEEE"
+                app:boxStrokeWidth="2dp"
+                app:startIconDrawable="@drawable/ic_pass_small"
+                android:hint="Contraseña">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietContraseñalogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:paddingStart="45dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:text="Iniciar Sesión"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/marron_oscuro"
+                android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilCorreologin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            app:boxBackgroundColor="#F7EEEE"
-            app:boxStrokeWidth="2dp"
-            app:startIconDrawable="@drawable/ic_correo_small"
-            android:hint="Correo">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tietCorreologin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:paddingStart="45dp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilContraseñalogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:endIconMode="password_toggle"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            app:boxBackgroundColor="#F7EEEE"
-            app:boxStrokeWidth="2dp"
-            app:startIconDrawable="@drawable/ic_pass_small"
-            android:hint="Contraseña">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tietContraseñalogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:paddingStart="45dp"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="190dp"
-            android:layout_height="wrap_content"
-            android:text="Iniciar Sesión"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="@color/marron_oscuro"
-            android:layout_gravity="center_horizontal" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="¿No tienes cuenta? "
-            android:textColor="#666666"
-            android:textSize="14sp" />
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <TextView
-            android:id="@+id/tvRegistrarse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Regístrate"
-            android:textStyle="bold"
-            android:textSize="17sp"
-            android:clickable="true"
-            android:focusable="true"
-            android:textColor="@color/marron_oscuro" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿No tienes cuenta? "
+                android:textColor="#666666"
+                android:textSize="14sp" />
 
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvRegistrarse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Regístrate"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/marron_oscuro" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

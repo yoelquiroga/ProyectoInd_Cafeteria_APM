@@ -1,58 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp">
+    android:layout_width="350dp"
+    android:layout_height="190dp"
+    android:layout_marginTop="10dp"
+
+    app:cardCornerRadius="20dp"
+    app:cardElevation="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="5dp">
+
+        <!-- Imagen del producto -->
+        <!-- Contenido del producto -->
 
         <ImageView
             android:id="@+id/ivImagen"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:padding="5dp"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="25dp"
+            android:padding="10dp"
             android:scaleType="centerCrop"
             android:src="@drawable/capu1" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingStart="16dp">
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:paddingStart="5dp">
 
-            <TextView
-                android:id="@+id/tvNombre"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cappuccino"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/tvPrecio"
-                android:layout_width="wrap_content"
+                <!-- Nombre del producto -->
+                <TextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cappuccino"
+                    android:layout_marginTop="14dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDescripcion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Espresso, Milk"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/marron_oscuro" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cantidad"
+                    android:layout_marginTop="20dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+
+                <!-- Contenedor para cantidad y botones + y - -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/btnMenos"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/boton_menos_bg"
+                        android:text="-"
+                        android:textSize="26sp"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:padding="0dp"
+                        android:layout_marginEnd="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvCantidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnMas"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/boton_mas_bg"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:text="S/ 12.50"
-                android:textSize="14sp"
-                android:textColor="@color/gris_oscuro" />
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:orientation="vertical">
 
+
+                <!-- Botón Eliminar -->
+                <ImageView
+                    android:id="@+id/ivEliminar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end"
+                    android:src="@drawable/ic_eliminar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="25dp"
+                    android:text="Precio"
+                    android:textColor="@color/marron_oscuro"
+                    android:textSize="14sp" />
+
+
+                <!-- Precio unitario -->
+                <TextView
+                    android:id="@+id/tvPrecioUnitario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="S/ 12.50"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+                <!-- Precio total -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:text="Total"
+                    android:textColor="@color/marron_oscuro"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:id="@+id/tvPrecioTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="S/ 12.50"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnEliminar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Eliminar"
-            android:textSize="12sp"
-            android:backgroundTint="@color/amarrillo"
-            android:textColor="@color/white" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

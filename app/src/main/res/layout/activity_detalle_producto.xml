@@ -70,14 +70,15 @@
         android:layout_marginTop="29dp"
         android:layout_gravity="center">
 
-        <Button
+        <TextView
             android:id="@+id/btnMenos"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/boton_menos_bg"
             android:text="-"
-            android:textSize="18sp"
-            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="27sp"
+            android:textColor="@color/white"
             android:gravity="center"
             android:padding="0dp"
             android:layout_marginEnd="8dp" />
@@ -91,14 +92,15 @@
             android:textStyle="bold"
             android:textColor="@color/black" />
 
-        <Button
+        <TextView
             android:id="@+id/btnMas"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/boton_mas_bg"
             android:text="+"
-            android:textSize="18sp"
-            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
             android:gravity="center"
             android:padding="0dp"
             android:layout_marginStart="8dp" />
@@ -148,24 +150,26 @@
         android:gravity="center"
         android:layout_gravity="center">
 
-        <Button
+        <TextView
             android:id="@+id/btnTamanioS"
             android:layout_width="85dp"
             android:layout_height="32dp"
             android:background="@drawable/boton_tamanio_bg"
             android:text="S"
+            android:backgroundTint="@color/gris_claro"
             android:textSize="14sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:gravity="center"
-            android:padding="0dp"
+            android:padding="5dp"
             android:layout_marginStart="8dp" />
 
-        <Button
+        <TextView
             android:id="@+id/btnTamanioM"
             android:layout_width="95dp"
             android:layout_height="32dp"
             android:background="@drawable/boton_tamanio_bg"
+            android:backgroundTint="@color/black"
             android:text="M"
             android:textSize="14sp"
             android:textColor="@color/white"
@@ -174,14 +178,15 @@
             android:padding="0dp"
             android:layout_marginStart="8dp" />
 
-        <Button
+        <TextView
             android:id="@+id/btnTamanioL"
             android:layout_width="85dp"
             android:layout_height="32dp"
             android:background="@drawable/boton_tamanio_bg"
+            android:backgroundTint="@color/gris_claro"
             android:text="L"
             android:textSize="14sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:gravity="center"
             android:padding="0dp"
@@ -218,7 +223,7 @@
             android:text="Agregar al Carrito"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:backgroundTint="#28283C"
+            android:backgroundTint="@color/black"
             android:textColor="@color/white" />
     </LinearLayout>
 </LinearLayout>
