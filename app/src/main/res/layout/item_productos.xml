@@ -1,6 +1,6 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="160dp"
+    android:layout_width="170dp"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="16dp"
@@ -11,7 +11,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="10dp"
-        android:background="@color/gris_claro">
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/ivFavoritos"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_corazon"
+            android:layout_gravity="end"/>
 
         <ImageView
             android:id="@+id/ivImagen"
@@ -36,8 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Espresso, Milk"
+            android:layout_marginBottom="5dp"
             android:textSize="12sp"
-            android:textColor="@color/black" />
+            android:textColor="@color/marron2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,18 +59,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="$4.5"
+                android:text="S/ 4.5"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
-
             <ImageView
-                android:id="@+id/ivFavoritos"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/ic_corazon"
-                android:layout_gravity="bottom"/>
-        </LinearLayout>
+                android:id="@+id/ivAgregar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_agregar"/>
 
+        </LinearLayout>
     </LinearLayout>
+
+
 </androidx.cardview.widget.CardView>

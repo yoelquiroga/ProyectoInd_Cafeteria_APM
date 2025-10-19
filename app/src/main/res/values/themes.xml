@@ -19,4 +19,10 @@
         <item name="postSplashScreenTheme">@style/Theme.ProyectoCafeteria</item>
     </style>
 
+    //Buscador
+    <style name="ShapeAppearance.MyApp.TextInputLayout" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+
 </resources>

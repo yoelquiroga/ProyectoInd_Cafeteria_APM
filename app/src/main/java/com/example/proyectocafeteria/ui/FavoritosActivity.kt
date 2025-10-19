@@ -29,9 +29,10 @@ class FavoritosActivity : AppCompatActivity() {
         rvFavoritos = findViewById(R.id.rvFavoritos)
         rvFavoritos.layoutManager = GridLayoutManager(this, 2)
 
-        val favoritos = HomeActivity.listaCompleta.filter { it.esFavorito }
-        adaptadorFavoritos = ProductoAdapter(favoritos)
+        // Inicializar con una lista vacía mutable
+        adaptadorFavoritos = ProductoAdapter(mutableListOf())
         rvFavoritos.adapter = adaptadorFavoritos
+        actualizarFavoritos() // Llenar la lista
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -56,8 +57,7 @@ class FavoritosActivity : AppCompatActivity() {
 
     fun actualizarFavoritos() {
         val favoritos = HomeActivity.listaCompleta.filter { it.esFavorito }
-        adaptadorFavoritos = ProductoAdapter(favoritos)
-        rvFavoritos.adapter = adaptadorFavoritos
+        adaptadorFavoritos.actualizarLista(favoritos.toMutableList())
     }
 
     override fun onResume() {

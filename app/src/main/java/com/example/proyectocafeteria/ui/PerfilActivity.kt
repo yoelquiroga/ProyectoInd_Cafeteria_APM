@@ -51,9 +51,9 @@ class PerfilActivity : AppCompatActivity() {
 
         // Establecer imagen según género
         when (usuario.genero) {
-            "Masculino" -> ivFotoPerfil.setImageResource(R.drawable.ic_hombre)
-            "Femenino" -> ivFotoPerfil.setImageResource(R.drawable.ic_mujer)
-            else -> ivFotoPerfil.setImageResource(R.drawable.ic_otros)
+            "Masculino" -> ivFotoPerfil.setImageResource(R.drawable.ic_perfil_user)
+            "Femenino" -> ivFotoPerfil.setImageResource(R.drawable.ic_perfil_user)
+            else -> ivFotoPerfil.setImageResource(R.drawable.ic_perfil_user)
         }
 
         // Botón Cerrar Sesión

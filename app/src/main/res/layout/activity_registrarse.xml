@@ -113,6 +113,24 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                app:boxBackgroundColor="#F7EEEE"
+                app:boxStrokeWidth="2dp"
+                android:hint="Teléfono">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="9"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilContraseñaRegis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,7 +172,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:orientation="horizontal">
 
                 <TextView

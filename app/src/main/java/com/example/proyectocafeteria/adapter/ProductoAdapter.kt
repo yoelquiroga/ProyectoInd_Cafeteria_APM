@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectocafeteria.R
 import com.example.proyectocafeteria.entity.Producto
@@ -13,8 +14,14 @@ import com.example.proyectocafeteria.ui.DetalleProductoActivity
 import com.example.proyectocafeteria.ui.FavoritosActivity
 import com.example.proyectocafeteria.ui.HomeActivity
 
-class ProductoAdapter(private val productos: List<Producto>) :
+class ProductoAdapter(private val productos: MutableList<Producto>) :
     RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder>() {
+
+    fun actualizarLista(nuevaLista: List<Producto>) {
+        productos.clear()
+        productos.addAll(nuevaLista)
+        notifyDataSetChanged()
+    }
 
     inner class ProductoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivImagen: ImageView = itemView.findViewById(R.id.ivImagen)
@@ -52,13 +59,23 @@ class ProductoAdapter(private val productos: List<Producto>) :
             )
 
             // Notificar a HomeActivity
-            HomeActivity.adaptadorHome?.notifyDataSetChanged()
+          HomeActivity.adaptadorHome?.notifyDataSetChanged()
 
             // Notificar a FavoritosActivity si está abierta
             if (holder.itemView.context is FavoritosActivity) {
                 (holder.itemView.context as FavoritosActivity).actualizarFavoritos()
             }
+
+            // Mostrar mensaje de Toast
+            Toast.makeText(
+                holder.itemView.context,
+                if (producto.esFavorito) "Agregado a favoritos"
+                else "Eliminado de favoritos",
+                Toast.LENGTH_SHORT
+            ).show()
         }
+
+
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context

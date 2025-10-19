@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gris_oscuro"
+    android:background="@drawable/bg_detalleproducto"
+    android:orientation="vertical"
     tools:context=".ui.DetalleProductoActivity">
+
     <!-- Barra superior -->
     <LinearLayout
         android:id="@+id/llEncabezado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <ImageView
             android:id="@+id/ivBack"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_regresar"
+            android:src="@drawable/ic_regresar_blanco"
             android:layout_gravity="center_vertical" />
+
         <TextView
             android:id="@+id/tvNombreProducto"
             android:layout_width="0dp"
@@ -38,21 +41,68 @@
             android:id="@+id/ivFavorito"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_corazon"
+            android:src="@drawable/ic_corazon_blanco"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
 
     <!-- Imagen del producto -->
     <ImageView
         android:id="@+id/ivImagen"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:scaleType="centerCrop"
-        android:padding="70dp"
+        android:layout_gravity="center"
         android:src="@drawable/capu1"
-        app:layout_constraintTop_toBottomOf="@id/llEncabezado"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginTop="16dp" />
+
+    <!-- Contenedor para los botones + y - -->
+    <LinearLayout
+        android:id="@+id/llCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/boton_cantidad_bg"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:gravity="center"
+        android:layout_marginTop="29dp"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/btnMenos"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/boton_menos_bg"
+            android:text="-"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="0dp"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/tvCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btnMas"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/boton_mas_bg"
+            android:text="+"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="0dp"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
 
     <!-- Nombre y descripción -->
     <TextView
@@ -60,56 +110,115 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="70dp"
         android:text="Cappuccino"
+        android:textColor="#060606"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/ivImagen"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tvDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="25dp"
         android:text="Espresso, Milk"
         android:textSize="16sp"
-        android:textColor="#CCCCCC"
-        app:layout_constraintTop_toBottomOf="@id/tvNombre"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="@color/marron_oscuro" />
 
-    <!-- Precio -->
+    <!-- Opciones de tamaño (adorno) -->
     <TextView
-        android:id="@+id/tvPrecio"
+        android:id="@+id/tvTamanioLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="$4.5"
-        android:textSize="24sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Tamaño"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#FFD700"
-        app:layout_constraintTop_toBottomOf="@id/tvDescripcion"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textColor="@color/black" />
 
-    <!-- Botón Agregar al carrito -->
-    <Button
-        android:id="@+id/btnAgregarCarrito"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp"
-        android:text="Agregar al Carrito"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:backgroundTint="#FFD700"
-        android:textColor="#2E2E2E"
-        app:layout_constraintTop_toBottomOf="@id/tvPrecio"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/llTamanio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/btnTamanioS"
+            android:layout_width="85dp"
+            android:layout_height="32dp"
+            android:background="@drawable/boton_tamanio_bg"
+            android:text="S"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="0dp"
+            android:layout_marginStart="8dp" />
+
+        <Button
+            android:id="@+id/btnTamanioM"
+            android:layout_width="95dp"
+            android:layout_height="32dp"
+            android:background="@drawable/boton_tamanio_bg"
+            android:text="M"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="0dp"
+            android:layout_marginStart="8dp" />
+
+        <Button
+            android:id="@+id/btnTamanioL"
+            android:layout_width="85dp"
+            android:layout_height="32dp"
+            android:background="@drawable/boton_tamanio_bg"
+            android:text="L"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="0dp"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Precio y Botón Agregar al carrito -->
+    <LinearLayout
+        android:id="@+id/llPrecioYBoton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="55dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/tvPrecio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:text="S/ 4.5"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btnAgregarCarrito"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="16dp"
+            android:text="Agregar al Carrito"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="#28283C"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

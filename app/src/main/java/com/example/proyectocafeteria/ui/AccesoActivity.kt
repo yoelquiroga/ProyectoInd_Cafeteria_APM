@@ -2,6 +2,7 @@ package com.example.proyectocafeteria.ui
 
 import android.content.Context
 import android.content.Intent
+import android.database.Cursor
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -12,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.proyectocafeteria.ui.HomeActivity
 import com.example.proyectocafeteria.R
+import com.example.proyectocafeteria.data.AppDatabaseHelper
 import com.example.proyectocafeteria.ui.RegistrarseActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.example.proyectocafeteria.entity.Usuario
@@ -39,57 +41,60 @@ class AccesoActivity : AppCompatActivity() {
         }
 
 
-        // Leer usuario guardado
-        val prefs = getSharedPreferences("RegistroUsu", Context.MODE_PRIVATE)
-        val usuarioGuardado = Usuario(
-            correo = prefs.getString("correoregis", "") ?: "",
-            nombre = prefs.getString("nombreusuario", "") ?: "",
-            genero = prefs.getString("generoid", "") ?: "",
-            contraseña = prefs.getString("passregis", "") ?: ""
-        )
-
-
-        //Iniciar Sesion en Home
         btnLogin.setOnClickListener {
-            val correologin = tietCorreologin.text.toString().trim()
-            val contraseñalogin = tietContraseñalogin.text.toString().trim()
+            val correo = tietCorreologin.text.toString().trim()
+            val contraseña = tietContraseñalogin.text.toString().trim()
 
-            if (correologin.isEmpty()) {
+            // Validar campos vacíos
+            if (correo.isEmpty()) {
                 Toast.makeText(this, "Ingrese su correo", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (contraseñalogin.isEmpty()) {
+            if (contraseña.isEmpty()) {
                 Toast.makeText(this, "Ingrese su contraseña", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (correologin != usuarioGuardado.correo && contraseñalogin == usuarioGuardado.contraseña) {
-                Toast.makeText(this, "El correo que ingresó no existe", Toast.LENGTH_SHORT).show()
-                tietCorreologin.setText("")
-                return@setOnClickListener
-            }
-            if (correologin == usuarioGuardado.correo && contraseñalogin != usuarioGuardado.contraseña) {
-                Toast.makeText(this, "La contraseña que ingresó es incorrecta", Toast.LENGTH_SHORT).show()
-                tietContraseñalogin.setText("")
-                return@setOnClickListener
-            }
-            if (correologin != usuarioGuardado.correo && contraseñalogin != usuarioGuardado.contraseña) {
-                Toast.makeText(this, "La cuenta que ingresó no existe", Toast.LENGTH_SHORT).show()
-                tietCorreologin.setText("")
-                tietContraseñalogin.setText("")
-                return@setOnClickListener
-            }
 
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.putExtra("nombreusuario", usuarioGuardado.nombre)
-            intent.putExtra("generoid", usuarioGuardado.genero)
-            startActivity(intent)
+            // Conectar a la base de datos
+            val dbHelper = AppDatabaseHelper(this)
+            val db = dbHelper.readableDatabase
 
+            // Consultar usuario
+            val cursor: Cursor = db.rawQuery(
+                "SELECT nombres, sexo FROM usuario WHERE correo = ? AND clave = ?",
+                arrayOf(correo, contraseña)
+            )
+
+            // Verificar si se encontró un resultado
+            if (cursor.count > 0) {
+                cursor.moveToFirst()
+
+                val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombres"))
+                val genero = cursor.getString(cursor.getColumnIndexOrThrow("sexo"))
+
+                cursor.close()
+                db.close()
+
+                // Ir a HomeActivity
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.putExtra("nombreusuario", nombre)
+                intent.putExtra("generoid", genero)
+                startActivity(intent)
+                finish() // Evita volver al login con el botón "back"
+            } else {
+                // Credenciales incorrectas
+                cursor.close()
+                db.close()
+
+                Toast.makeText(this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+                tietCorreologin.setText("")
+                tietContraseñalogin.setText("")
+            }
         }
 
         tvRegistrarse.setOnClickListener {
             val intent = Intent(this, RegistrarseActivity::class.java)
             startActivity(intent)
         }
-
     }
 }
